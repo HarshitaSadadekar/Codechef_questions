@@ -4,6 +4,10 @@
 using namespace std;
 
 int minProductSubset(int arr[], int N){
+    if(N==1){
+        return arr[0];
+    }
+    
     int max_neg=0,min_pos=0,count_neg=0,count_zero=0,prod=1;
     for(int i=0;i<N;i++){
         if(arr[i]==0){
@@ -24,10 +28,10 @@ int minProductSubset(int arr[], int N){
     if(count_zero>0 && count_neg==0){
         return 0;
     }
-    else if((count_neg|1 >count_neg) && (count_zero==0)){
+    else if((count_neg%2==0) && (count_zero==0)){
         return prod/max_neg;
     }
-    else if((count_neg|1 <count_neg) && (count_zero==0)){
+    else if((count_neg%2 !=0) && (count_zero==0)){
         return prod;
     }
     else if(count_zero==0 && count_neg==0){
