@@ -6,6 +6,7 @@
         "bitset": "cpp",
         "complex": "cpp",
         "iomanip": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "iostream": "cpp"
     }
 }
