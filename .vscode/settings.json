@@ -7,6 +7,10 @@
         "complex": "cpp",
         "iomanip": "cpp",
         "istream": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "limits": "cpp",
+        "valarray": "cpp"
     }
 }
