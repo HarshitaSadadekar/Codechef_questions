@@ -1,29 +1,62 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void countSort(int a[], int N){
-    int i;
-    int max= *max_element(a,a+N);
-    int c[max+1];
-    for(i=0;i<max+1;i++){
-        c[i]=0;
+    int romanToInt(string s) {
+        unordered_map<int,int> um;
+        for(int i=0; i<s.length(); i++){
+            if(s[i] == 'I'  && s[i+1] != 'V'  && s[i+1] != 'X'){
+                um[1]++;
+            }
+            else if(s[i] == 'V'  && s[i-1] != 'I'){
+                um[5]++;
+            }
+            else if(s[i] == 'X'  && s[i-1] != 'I' && s[i+1] != 'C' && s[i+1] != 'L'){
+                um[10]++;
+            }
+            else if(s[i] == 'L' && s[i-1] != 'X'){
+                um[50]++;
+            }
+            else if(s[i] == 'C' && s[i-1] != 'X' && s[i+1] != 'D' && s[i+1] != 'M'){
+                um[100]++;
+            }
+            else if(s[i] == 'D' && s[i-1] != 'C'){
+                um[500]++;
+            }
+            else if(s[i] == 'M' && s[i-1] != 'C'){
+                um[1000]++;
+            }
+            else if(s[i] == 'I' && s[i+1] == 'V'){
+                um[4]++;
+            }
+            else if(s[i] == 'I' && s[i+1] == 'X'){
+                um[9]++;
+            }
+            else if(s[i] == 'X' && s[i+1] == 'L'){
+                um[40]++;
+            }
+            else if(s[i] == 'X' && s[i+1] == 'C'){
+                um[90]++;
+            }
+            else if(s[i] == 'C' && s[i+1] == 'D'){
+                um[400]++;
+            }
+            else if(s[i] == 'C' && s[i+1] == 'M'){
+                um[900]++;
+            }
+        }
+        int total =0;
+        for(auto it:um){
+            total+=(it.second * it.first);
+        }
+        return total;
     }
-    for(i=0;i<N;i++){
-        c[a[i]]++;
-    }
-    for(i=0;i<max+1;i++){
-        cout<<c[i]<<" ";
-    }
-}
+
 
 int main(){
-    int n,i;
-    cin>>n;
-    int arr[n];
-    for(i=0;i<n;i++){
-        cin>>arr[i];
-    }
-    countSort(arr,n);
+    string str;
+    cin>>str;
+    
+    cout<<romanToInt(str);
     
     return 0;
 }
