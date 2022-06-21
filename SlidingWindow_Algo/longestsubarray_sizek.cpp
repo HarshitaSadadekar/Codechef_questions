@@ -2,7 +2,7 @@
 using namespace std;
 
 int longestSubarray(int a[], int n, int k){
-    int sum=0,maxsize=0,i=0,j=0;
+    int sum=0,maxsize=INT_MIN,i=0,j=0;
 
     while(j < n){
         sum+= a[j];
@@ -18,6 +18,10 @@ int longestSubarray(int a[], int n, int k){
                 sum-=a[i];
                 i++;
             }
+            if(sum == k){
+                maxsize = max(maxsize, j-i+1);
+            }
+            j++;
         }
     }
     return maxsize;
