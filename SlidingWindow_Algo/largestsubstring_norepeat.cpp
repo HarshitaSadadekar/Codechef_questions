@@ -3,7 +3,7 @@ using namespace std;
 
 int largestSubstringNoRepeat(string s){
     unordered_map<char,int> um;
-    int i=0,j=0,max_len=INT_MIN;
+    int i=0,j=0,max_len=0;
 
     while(j < s.length()){
         um[s[j]]++;
@@ -22,6 +22,7 @@ int largestSubstringNoRepeat(string s){
                 }
                 i++;
             }
+            j++;
         }
     }
     return max_len;
