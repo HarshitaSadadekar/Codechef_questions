@@ -57,6 +57,22 @@ vector<int> nearestGreaterToRight(int arr[], int n){
     return right;
 }
 
+int maxAreaHistogram(int a1[], int size){
+    vector<int> left = nearestGreaterToLeft(a1,size);
+    vector<int> right = nearestGreaterToRight(a1,size);
+    vector<int> width;
+    vector<int> area;
+
+    for(int k=0; k<N; k++){
+        width[k] = right[k] - left[k] -1;
+    }
+    for(int k=0; k<N; k++){
+       area[k] =a[k] * width[k];
+    }
+
+    return *max_element(area.begin(), area.end());
+}
+
 int main(){
     int N;
     cin>>N;
@@ -64,17 +80,7 @@ int main(){
     for(int i=0; i<N; i++){
         cin>>a[i];
     }
-    vector<int> left = nearestGreaterToLeft(a,N);
-    vector<int> right = nearestGreaterToRight(a,N);
-
-    vector<int> width;
-    vector<int> area;
-    for(int k=0; k<N; k++){
-        width[k] = right[k] - left[k] -1;
-    }
-    for(int k=0; k<N; k++){
-       area[k] =a[k] * width[k];
-    }
-    cout<<*max_element(area.begin(), area.end());
+    
+    cout<<maxAreaHistogram(a, N);
     return 0;
 }
