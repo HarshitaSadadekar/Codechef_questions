@@ -20,6 +20,7 @@ void solve(int col, vector<string> &board, vector<vector<string>> &ans, vector<i
             upperDiagonal[n-1+col-row]=0;
         }
     }
+}
 
 vector<vector<string>> solveQueens(int n){
     vector<vector<string>> ans;
