@@ -1,4 +1,6 @@
 //Kahn's Algorithm
+#include<bits/stdc++.h>
+using namespace std;
 class Solution{
     public:
     vector<int> topoSort(int N, vector<int> adj[]){
@@ -17,10 +19,12 @@ class Solution{
         }
         
         vector<int> topo;
+        //int count=0; 
         while(!q.empty()){
             int node = q.front();
             q.pop();
             topo.push_back(node);
+            //count++;
             for(auto it:adj[node]){
                 indegree[it]--;
                 if(indegree[it] == 0){
@@ -28,6 +32,9 @@ class Solution{
                 }
             }
         }
+        // if(count==N){
+        //     return false;
+        // }
         return topo;
     }
 }

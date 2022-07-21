@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 class Solution{
     void findTopoSort(int node, vector<int> &vis, stack<int> &st, vector<int> adj[]){
         vis[node]=1;
