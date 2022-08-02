@@ -27,7 +27,7 @@ void shortestPath(int src, int N, vector<pair<int,int>> &adj[]){
     }
     dist[src]=0;
 
-    while(!st.empty){
+    while(!st.empty()){
         int node = st.top();
         st.pop();
 
