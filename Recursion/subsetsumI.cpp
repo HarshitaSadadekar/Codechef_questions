@@ -9,7 +9,7 @@ void func(int ind, int sum, vector<int> &arr, int n, vector<int> &sumSubset){
     }
     //pick the element
     func(ind+1, sum+arr[ind], arr, n, sumSubset);
-
+    sum-=arr[ind];
     //DO NOT pick the element
     func(ind+1, sum, arr, n, sumSubset);
 }

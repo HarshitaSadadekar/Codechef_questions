@@ -6,7 +6,7 @@ int rainTrapping(int arr[], int n){
 
     mxl[0]=arr[0];
     for(int i=1; i<n; i++){
-        mxl[i] = max(mxl[i], arr[i]);
+        mxl[i] = max(mxl[i-1], arr[i]);
     }
 
     mxr[n-1]=arr[n-1];

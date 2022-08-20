@@ -7,8 +7,8 @@ int maxAreaRectangle(int arr[][], int n, int m){
         v.push_back(arr[0][j]);
     }
     int mx = MaxAreaHistogram(v);
-    for(int i=1; i<N; i++){
-        for(int j=0; j<M; j++){
+    for(int i=1; i<n; i++){
+        for(int j=0; j<m; j++){
             if(arr[i][j] == 0){
                 v[j] = 0;
             }

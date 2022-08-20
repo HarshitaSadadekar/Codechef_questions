@@ -34,7 +34,7 @@ vector<int> nearestGreaterToRight(int arr[], int n){
     stack<pair<int,int>> s1;
     int pseudoindex = n+1;
 
-    for(int i=0; i<n; i++){
+    for(int i=n-1; i>=0; i--){
         if(s1.size() == 0){
             right.push_back(pseudoindex);
         }
@@ -54,19 +54,20 @@ vector<int> nearestGreaterToRight(int arr[], int n){
         }
         s1.push({arr[i], i});
     }
+    reverse(right.begin(), right.end());
     return right;
 }
 
-int maxAreaHistogram(int a1[], int size){
-    vector<int> left = nearestGreaterToLeft(a1,size);
-    vector<int> right = nearestGreaterToRight(a1,size);
+int maxAreaHistogram(int a[], int size){
+    vector<int> left = nearestGreaterToLeft(a,size);
+    vector<int> right = nearestGreaterToRight(a,size);
     vector<int> width;
     vector<int> area;
 
-    for(int k=0; k<N; k++){
+    for(int k=0; k<size; k++){
         width[k] = right[k] - left[k] -1;
     }
-    for(int k=0; k<N; k++){
+    for(int k=0; k<size; k++){
        area[k] =a[k] * width[k];
     }
 
